@@ -1,0 +1,43 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  collections Collection[] 
+  
+}
+
+model Collection {
+  id        Int      @id @default(autoincrement())
+  name      String
+  userId    Int      
+  user      User     @relation(fields: [userId], references: [id], onDelete:Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  todo      Todo[]  
+  
+}
+
+model Todo {
+  id           Int       @id @default(autoincrement())
+  title        String  
+  isCompleted  Boolean   @default(false)
+  collectionId Int      
+  collection   Collection  @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
