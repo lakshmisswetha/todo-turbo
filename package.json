@@ -8,6 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "prettier": "^3.2.5",
     "turbo": "^2.1.1",
     "typescript": "^5.4.5"
@@ -19,5 +20,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  }
 }
