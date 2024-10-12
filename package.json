@@ -1,27 +1,29 @@
 {
-  "name": "turbo-demo",
-  "private": true,
-  "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "@types/bcryptjs": "^2.4.6",
-    "prettier": "^3.2.5",
-    "turbo": "^2.1.1",
-    "typescript": "^5.4.5"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "npm@10.2.3",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
-  "dependencies": {
-    "bcryptjs": "^2.4.3"
-  }
+    "name": "turbo-demo",
+    "private": true,
+    "scripts": {
+        "build": "turbo build",
+        "dev": "turbo dev",
+        "deploy": "turbo run build --scope=app --includeDependencies --no-deps",
+        "lint": "turbo lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.6",
+        "prettier": "^3.2.5",
+        "turbo": "^2.1.1",
+        "typescript": "^5.4.5"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "packageManager": "npm@10.2.3",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "zod": "^3.23.8"
+    }
 }
